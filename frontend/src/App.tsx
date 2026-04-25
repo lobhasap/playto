@@ -9,7 +9,7 @@ type Dashboard = {
     recent_ledger: Array<{ id: number; entry_type: string; amount_paise: number; created_at: string }>;
     payouts: Array<{ id: string; amount_paise: number; status: string; failure_reason: string; attempts: number; created_at: string }>;
 };
-const API_BASE = "http://127.0.0.1:8000/api/v1";
+const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000/api/v1";
 
 const inr = (paise: number) => `Rs. ${(paise / 100).toFixed(2)}`;
 
